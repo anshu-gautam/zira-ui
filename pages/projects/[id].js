@@ -30,8 +30,6 @@ export default function ShowProject({ id }) {
     fetchProject();
   }, []);
 
-  console.log(data);
-
   return (
     <section className='w-full px-8'>
       <div className='w-full px-2 py-16 sm:px-0'>

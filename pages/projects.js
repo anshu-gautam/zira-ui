@@ -15,7 +15,6 @@ export default function Projects() {
           Authorization: `Bearer ${getAuthToken()}`,
         },
       });
-      console.log(data);
       setData(response.data);
     } catch (error) {
       console.log(error.message);

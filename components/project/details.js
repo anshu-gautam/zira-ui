@@ -1,6 +1,38 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { getAuthToken } from '../../utils/auth';
+
 export default function Details({ project }) {
+  const [formData, setFormData] = useState(project);
+
+  const updateForm = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `projects/${project._id}`,
+        {
+          ...project,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${getAuthToken()}`,
+          },
+        }
+      );
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
+  useEffect(() => {
+    setFormData(project);
+  }, [project]);
+
   return (
-    <section className='flex justify-between px-16 py-10 w-full'>
+    <form
+      className='flex justify-between px-16 py-10 w-full'
+      onSubmit={updateForm}
+    >
       <div className='space-y-4 w-full'>
         <div className='flex justify-between items-end w-full'>
           <p className='font-bold text-lg w-2/3'>Name</p>
@@ -8,7 +40,7 @@ export default function Details({ project }) {
             autoComplete='off'
             className='py-1 px-2 w-1/3 border border-black rounded-md outline-none ring-offset-1 focus:ring-1 focus:ring-blue-300 transition-all duration-300'
             placeholder='Project name'
-            defaultValue={project?.name}
+            value={formData?.name}
             type='text'
           />
         </div>
@@ -18,7 +50,7 @@ export default function Details({ project }) {
             autoComplete='off'
             className='py-1 px-2 w-1/3 border border-black rounded-md outline-none ring-offset-1 focus:ring-1 focus:ring-blue-300 transition-all duration-300'
             placeholder='Project name'
-            defaultValue={project?.identifier}
+            value={formData?.identifier}
             type='text'
           />
         </div>
@@ -28,16 +60,19 @@ export default function Details({ project }) {
             autoComplete='off'
             className='py-1 px-2 w-1/3 border border-black rounded-md outline-none ring-offset-1 focus:ring-1 focus:ring-blue-300 transition-all duration-300'
             placeholder='Project name'
-            defaultValue={project?.desc}
+            value={formData?.desc}
             type='text'
           />
         </div>
         <div className='flex justify-between items-end w-full'>
           <p className='font-bold text-lg w-2/3'>Created at</p>
-          <p className='text-sm text-gray-500 w-1/3'> {project?.createdAt}</p>
+          <p className='text-sm text-gray-500 w-1/3'> {formData?.createdAt}</p>
         </div>
         <div className='w-full flex space-x-4 items-center justify-end'>
-          <button className='border border-red-500 font-medium duration-300 rounded px-3 py-2 text-xs bg-transparent text-red-500 hover:bg-red-500 hover:text-white'>
+          <button
+            type='button'
+            className='border border-red-500 font-medium duration-300 rounded px-3 py-2 text-xs bg-transparent text-red-500 hover:bg-red-500 hover:text-white'
+          >
             Delete Project
           </button>
           <button
@@ -48,6 +83,6 @@ export default function Details({ project }) {
           </button>
         </div>
       </div>
-    </section>
+    </form>
   );
 }
