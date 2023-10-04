@@ -3,6 +3,10 @@ import { Square3Stack3DIcon } from '@heroicons/react/24/outline';
 export default function Home() {
   return (
     <section className='p-10'>
+      <div className='font-mono  font-bold mb-2 text-xl '>
+        <h2>Good Morning john Doe</h2>
+        <p>Tuesday, Oct 3 </p>
+      </div>
       <div className='grid grid-cols-5 gap-4'>
         <div className='p-5 shadow-md rounded-xl flex flex-col items-center space-y-3 bg-[#e0ebf2]'>
           <div className='rounded-full bg-white p-1'>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getAuthToken } from '../utils/auth';
+import { PlusIcon } from '@heroicons/react/24/outline';
 
 export default function Ticket() {
   const [data, setData] = useState([]);
@@ -40,7 +41,13 @@ export default function Ticket() {
 
   return (
     <div className='pt-12 px-10 w-full h-full flex flex-col bg-gray-50'>
-      <header className='text-3xl font-medium mb-4'>Tickets</header>
+      <div className='flex justify-between items-center'>
+        <header className='text-3xl font-medium mb-4'>Tickets</header>
+        <button className='flex w-fit space-x-2 items-center justify-end border border-gray-500 text-gray px-3 py-2 rounded font-medium duration-300 text-xs hover:bg-gray-800 hover:text-white'>
+          <PlusIcon className='h-4 w-4' />
+          <span>Add new</span>
+        </button>
+      </div>
       <table className='border-collapse border border-slate-400 bg-white shadow-lg'>
         <thead>
           <tr>

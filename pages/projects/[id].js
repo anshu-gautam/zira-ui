@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { Tab } from '@headlessui/react';
 import Details from '../../components/project/details';
 import { getAuthToken } from '../../utils/auth';
+import State from '../../components/project/states';
+import Estimate from '../../components/project/estimates';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -54,27 +56,27 @@ export default function ShowProject({ id }) {
           <Tab.Panels className='mt-2'>
             <Tab.Panel
               className={classNames(
-                'rounded-xl bg-white p-3',
-                'ring-white ring-opacity-60 ring-offset-2 focus:outline-none focus:ring-2'
+                'rounded-xl bg-white shadow p-3',
+                'ring-white ring-opacity-60 ring-offset-2 focus:outline-none'
               )}
             >
               <Details project={data.project} />
             </Tab.Panel>
             <Tab.Panel
               className={classNames(
-                'rounded-xl bg-white p-3',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                'rounded-xl bg-white shadow p-3',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none'
               )}
             >
-              States here
+              <State states={data.states} refetch={fetchProject} />
             </Tab.Panel>
             <Tab.Panel
               className={classNames(
-                'rounded-xl bg-white p-3',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                'rounded-xl bg-white shadow p-3',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none'
               )}
             >
-              Estimates here
+              <Estimate estimates={data.estimates} refetch={fetchProject} />
             </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
