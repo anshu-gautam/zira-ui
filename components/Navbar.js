@@ -12,25 +12,25 @@ export default function Navbar() {
       <nav className='py-3 flex flex-col space-y-5'>
         <Link
           href='/'
-          className='max-w-min p-2 text-white tracking-wider hover:bg-gray-900 transition'
+          className='max-w-min p-2 text-white tracking-wider hover:bg-yellow-500 transition'
         >
           <Squares2X2Icon className='h-8 w-8' />
         </Link>
         <Link
           href='/tickets'
-          className='max-w-min p-2 text-white tracking-wider hover:bg-gray-900 transition'
+          className='max-w-min p-2 text-white tracking-wider hover:bg-yellow-500 transition'
         >
           <TicketIcon className='h-8 w-8' />
         </Link>
         <Link
           href='/projects'
-          className='max-w-min p-2 text-white tracking-wider hover:bg-gray-900 transition'
+          className='max-w-min p-2 text-white tracking-wider hover:bg-yellow-500 transition'
         >
           <NewspaperIcon className='h-8 w-8' />
         </Link>
       </nav>
       <div className='flex items-center'>
-        <button className='hover:bg-gray-900 text-white p-2'>
+        <button className='hover:bg-yellow-500 text-white p-2'>
           <PowerIcon className='h-8 w-8' />
         </button>
       </div>

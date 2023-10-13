@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 
+import 'remixicon/fonts/remixicon.css';
 import '../styles/globals.css';
 import { Layout } from '../components';
 

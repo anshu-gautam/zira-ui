@@ -68,7 +68,11 @@ export default function ShowProject({ id }) {
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none'
               )}
             >
-              <State states={data.states} refetch={fetchProject} />
+              <State
+                states={data.states}
+                projectId={data?.project?._id}
+                refetch={fetchProject}
+              />
             </Tab.Panel>
             <Tab.Panel
               className={classNames(
@@ -76,7 +80,11 @@ export default function ShowProject({ id }) {
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none'
               )}
             >
-              <Estimate estimates={data.estimates} refetch={fetchProject} />
+              <Estimate
+                estimates={data.estimates}
+                projectId={data?.project?._id}
+                refetch={fetchProject}
+              />
             </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
